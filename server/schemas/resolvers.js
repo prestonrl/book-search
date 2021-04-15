@@ -14,18 +14,7 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
-        users: async () => {
-            return User.find()
-                .select('-__v -password')
-                .populate('books')
-        },
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
-                .select('-__v -password')
-                .populate('books')
-        }
     },
-
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args);
@@ -64,13 +53,13 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!');
         },
-        removeBook: async (parent, { bookID }) => {
+        removeBook: async (parent, args, context) => {
             if (context.user) {
                 const updatedUser = await Book.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedBooks: { bookId: updatedUser.bookId } } },
+                    { $pull: { savedBooks: { bookId: args.bookId } } },
                     { new: true }
                 );
 
@@ -80,6 +69,6 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         }
     }
-}
+};
 
 module.exports = resolvers;
