@@ -8,14 +8,15 @@
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
     "heroku-postbuild": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git@work.github.com:arosenkranz/googlebooks-app.git"
+    "url": "git+https://github.com/prestonrl/book-search"
   },
   "keywords": [],
-  "author": "",
+  "author": "Preston Larson",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^2.22.2",
