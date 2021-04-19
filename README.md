@@ -3,7 +3,7 @@
 ## Description
 
 
-Provided with a book search site that uses a REST API, I was challenged with refactoring the API to use GraphQL and an Apollo Server to give requests more flexibility. [Deployed]()
+Provided with a book search site that uses a REST API, I was challenged with refactoring the API to use GraphQL and an Apollo Server to give requests more flexibility. [Deployed](https://book-search-prl.herokuapp.com/)
 
 ![image](https://user-images.githubusercontent.com/70044796/115163429-4c2c1d80-a066-11eb-9de8-201babe794a0.png)
 
