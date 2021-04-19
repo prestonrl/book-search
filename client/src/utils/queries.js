@@ -18,3 +18,5 @@ export const GET_ME = gql`
         }
     }
 `;
+
+export default GET_ME;
